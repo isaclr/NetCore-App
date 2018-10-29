@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ClienteViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Clientes Cadastrados</h2>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Adicionar Cliente</a>
+</p>
+
+@if (Model.Count() == 0)
+{
+    <div>
+        <p class="well">
+            <strong>Nenhum cliente cadastrado.</strong>
+        </p>
+    </div>
+}
+else
+{
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr class="bg-primary">
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CNPJ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescricaoCategoria)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CNPJ)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescricaoCategoria)
+                    </td>
+                    <td width="18%">
+                        <a asp-action="Edit" class="btn btn-primary btn-xs" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" class="btn btn-info btn-xs" asp-route-id="@item.Id">Detalhes</a> | 
+                        <a asp-action="Delete" class="btn btn-danger btn-xs" asp-route-id="@item.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

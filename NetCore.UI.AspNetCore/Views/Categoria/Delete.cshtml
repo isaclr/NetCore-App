@@ -1,0 +1,32 @@
+﻿@model CategoriaViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Excluir</h2>
+
+<h3>Confirma a exclusão da Categoria?</h3>
+<h4 class="text-warning">Atenção, os clientes relacionados com essa categoria serão excluídos</h4>
+
+<div class="~row">
+    &nbsp;
+</div>
+<div>
+    <h4>Categoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>
