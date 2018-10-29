@@ -1,5 +1,4 @@
 # NetCore-App
-#Demonstração de aplicação ASP.NET Core + EntityFrameworkCore
 
 ## Codigo de demonstração ASP.NET Core + EntityFrameworkCore
 ### Utilização dos Padrões
